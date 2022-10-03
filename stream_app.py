@@ -15,7 +15,7 @@ my_fruit_list = my_fruit_list.set_index('Fruit')#It will show the fruit name whi
 #streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
 
 #Store the selected value in a variable 
-fruits_selected=streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index),['Avocado','Strawberries'])
+fruits_selected=streamlit.multiselect("Pick some fruits:", list(my_fruit_list.index))
 #To show only the selected fruit in the table
 fruits_to_show = my_fruit_list.loc[fruits_selected]
 # Display the table on the page.
