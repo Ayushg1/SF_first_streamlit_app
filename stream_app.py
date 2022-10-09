@@ -36,7 +36,12 @@ streamlit.dataframe(fruityvice_normalized)
 import snowflake.connector
 my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
 my_cur = my_cnx.cursor()
-my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+# my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")#it will fetch the sf username, acc and region
+#my_data_row = my_cur.fetchone()
+#streamlit.text("Hello from Snowflake:")# it will print the text which is mention
+#streamlit.text(my_data_row)# it will show the sf fetch data
+
+my_cur.execute("SELECT * from fruit_load_list")
 my_data_row = my_cur.fetchone()
-streamlit.text("Hello from Snowflake:")
-streamlit.text(my_data_row)
+#streamlit.text("The fruit load list contain")
+streamlit.text(my_data_row)# it will show the sf fetch data
